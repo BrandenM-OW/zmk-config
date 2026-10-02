@@ -3,12 +3,12 @@
 include:
   # Left half: talks to the computer, so ZMK Studio runs here (over USB).
   - board: nice_nano_v2
-    shield: corne_left nice_view_adapter nice_view
+    shield: corne_left nice_view_adapter nice_view_gem
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: corne_left
   - board: nice_nano_v2
-    shield: corne_right nice_view_adapter nice_view
+    shield: corne_right nice_view_adapter nice_view_gem
     artifact-name: corne_right
   # Only for fixing pairing trouble: flash to both halves, then flash the normal files again.
   - board: nice_nano_v2

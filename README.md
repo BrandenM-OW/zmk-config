@@ -1,6 +1,6 @@
 # zmk-config: Typeractive Corne (MX, wireless)
 
-ZMK firmware for the MX Corne: nice!nano v2 controllers, nice!view screens, ZMK v0.3. GitHub builds it on every push.
+ZMK firmware for the MX Corne: nice!nano v2 controllers, nice!view screens with [nice-view-gem](https://github.com/M165437/nice-view-gem), ZMK v0.3. GitHub builds it on every push.
 
 The keymap is the same Colemak-DH layout as the wired Choc Corne. **Don't edit `config/corne.keymap` by hand**: it is
 generated from the Vial keymap in the `corne` repo:
@@ -20,14 +20,14 @@ Then commit and push this repo.
    `corne_left...uf2` onto it; it restarts by itself when done.
 4. Same for the right half with `corne_right...uf2`.
 
-Instead of double-tapping reset, you can also hold both inner thumbs (layer 3) and press the top outer key of that half.
+Instead of double-tapping reset, you can also hold both inner thumbs (BT layer) and press the top outer key of that half.
 
-## Layer 3 (hold both inner thumbs)
+## BT layer (hold both inner thumbs)
 
 ```
- BOOT  BT0  BT1  BT2  BT3  BT4        .    .    .    .    .  BOOT
- UNLK   .    .    .    .    .         .    .    .    .    .    .
- BTCLR USB  BLE   .    .    .         .    .    .    .    .    .
+ BOOT  BT0  BT1  BT2  BT3  BT4        F1   F2   F3   F4  Vol+ BOOT
+ UNLK   .    .    .    .    .         F5   F6   F7   F8  Vol-   .
+ BTCLR USB  BLE   .    .    .         F9  F10  F11  F12  Mute   .
 ```
 
 - **BT0-BT4**: switch between up to 5 paired computers. **BTCLR** forgets the pairing of the current slot.
