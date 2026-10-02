@@ -1,0 +1,16 @@
+# What GitHub Actions builds on every push. Download the "firmware" artifact from the Actions run.
+---
+include:
+  # Left half: talks to the computer, so ZMK Studio runs here (over USB).
+  - board: nice_nano_v2
+    shield: corne_left nice_view_adapter nice_view
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: corne_left
+  - board: nice_nano_v2
+    shield: corne_right nice_view_adapter nice_view
+    artifact-name: corne_right
+  # Only for fixing pairing trouble: flash to both halves, then flash the normal files again.
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: settings_reset
