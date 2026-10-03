@@ -33,7 +33,9 @@ def c_source(img):
     px = stored.load()
     for y in range(h):
         for x in range(w):
-            if px[x, y] == 0:                                       # black -> index 1 (foreground)
+            # On the real screen a 1 bit shows light and a 0 bit dark (checked on the board 2026-10-03: the
+            # first build, with 1 = dark, came out as a negative), so set the bit for light pixels.
+            if px[x, y] != 0:
                 data[y * stride + x // 8] |= 0x80 >> (x % 8)
     rows = [", ".join("0x%02x" % b for b in data[i:i + 15]) for i in range(0, len(data), 15)]
     body = ",\n        ".join(rows)
