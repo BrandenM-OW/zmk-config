@@ -1,6 +1,7 @@
 # zmk-config: Typeractive Corne (MX, wireless)
 
-ZMK firmware for the MX Corne: nice!nano v2 controllers, nice!view screens with [nice-view-gem](https://github.com/M165437/nice-view-gem), ZMK v0.3. GitHub builds it on every push.
+ZMK firmware for the MX Corne: nice!nano v2 controllers, nice!view screens with [nice-view-gem](https://github.com/M165437/nice-view-gem) (a copy in
+`boards/shields/nice_view_gem`, with a husky instead of the crystal on the right half), ZMK v0.3. GitHub builds it on every push.
 
 The keymap is the same Colemak-DH layout as the wired Choc Corne. **Don't edit `config/corne.keymap` by hand**: it is
 generated from the Vial keymap in the `corne` repo:
@@ -40,6 +41,17 @@ Instead of double-tapping reset, you can also hold both inner thumbs (BT layer) 
 Studio changes are stored on the keyboard and **override this keymap**. After flashing a new keymap from here, open
 https://zmk.studio, connect, unlock, and use **Restore Stock Settings** so the board uses the file again. Make
 lasting changes in the `.vil` + `make_zmk.py`, and use Studio only for quick experiments.
+
+## Right-half picture
+
+The right screen shows a still picture made from `screen/husky_source.png`. To change it, replace that file (or point
+`SRC` in `screen/make_image.py` at another one, and adjust `CROP`), then:
+
+```
+python screen/make_image.py     # writes the image source and screen/preview.png
+```
+
+Check `screen/preview.png`, then commit and push. Only the right half needs re-flashing.
 
 ## If the halves stop talking or a computer won't pair
 

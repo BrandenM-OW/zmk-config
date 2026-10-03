@@ -4,15 +4,11 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: m165437
-      url-base: https://github.com/M165437
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-    # nice!view screens: https://github.com/M165437/nice-view-gem (its v0.3.0 matches ZMK v0.3)
-    - name: nice-view-gem
-      remote: m165437
-      revision: v0.3.0
   self:
     path: config
+# The nice!view screens use a copy of nice-view-gem v0.3.0 in boards/shields/nice_view_gem (with our own picture
+# on the right half), so it is not fetched here. Upstream: https://github.com/M165437/nice-view-gem

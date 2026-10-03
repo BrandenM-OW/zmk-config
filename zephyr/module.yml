@@ -1,0 +1,5 @@
+# Makes this repo a ZMK module, so the shields in boards/ (the customised nice-view-gem) are found by the build.
+name: zmk-config-corne
+build:
+  settings:
+    board_root: .
