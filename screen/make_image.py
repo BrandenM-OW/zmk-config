@@ -4,9 +4,10 @@ Run:  python screen/make_image.py            (needs Pillow: pip install pillow)
   screen/husky_source.png  ->  boards/shields/nice_view_gem/assets/peripheral_image.c
                                screen/preview.png (4x, coloured like the screen)
 
-The picture area is 68 wide x 69 tall as you look at the board, pure black and white. The screen is mounted sideways,
-so the image is stored turned 90 degrees clockwise (69 x 68), like the gem's crystal frames were.
-Style: autocontrast + Floyd-Steinberg dither ("A" from the 2026-10-03 previews).
+The image fills the screen below the status lines: 68 wide x 105 tall as you look at the board, pure black and white.
+Top 69 rows: the picture (autocontrast + Floyd-Steinberg dither, style "A" from the 2026-10-03 previews).
+Bottom 36 rows: TEXT in a tall 5 x 14 pixel font (option 2 of the previews).
+The screen is mounted sideways, so the image is stored turned 90 degrees clockwise (105 x 68).
 """
 import os
 
@@ -17,12 +18,51 @@ SRC = os.path.join(HERE, "husky_source.png")
 CROP = (4, 0, 148, 146)           # the face, same shape as the 68 x 69 area
 OUT_C = os.path.join(HERE, "..", "boards", "shields", "nice_view_gem", "assets", "peripheral_image.c")
 OUT_PREVIEW = os.path.join(HERE, "preview.png")
-W, H = 68, 69                     # upright, as seen on the board
+W, H = 68, 69                     # picture, upright as seen on the board
+TEXT, TEXT_H = "COLEMAK-DH", 36   # text strip under the picture
+
+# 5 x 7 glyphs, drawn twice as tall. Only the letters TEXT needs; add more here to change it.
+GLYPHS = {
+    "C": [".###.", "#...#", "#....", "#....", "#....", "#...#", ".###."],
+    "O": [".###.", "#...#", "#...#", "#...#", "#...#", "#...#", ".###."],
+    "L": ["#....", "#....", "#....", "#....", "#....", "#....", "#####"],
+    "E": ["#####", "#....", "#....", "####.", "#....", "#....", "#####"],
+    "M": ["#...#", "##.##", "#.#.#", "#.#.#", "#...#", "#...#", "#...#"],
+    "A": [".###.", "#...#", "#...#", "#####", "#...#", "#...#", "#...#"],
+    "K": ["#...#", "#..#.", "#.#..", "##...", "#.#..", "#..#.", "#...#"],
+    "D": ["####.", "#...#", "#...#", "#...#", "#...#", "#...#", "####."],
+    "H": ["#...#", "#...#", "#...#", "#####", "#...#", "#...#", "#...#"],
+    "-": [".....", ".....", ".....", ".###.", ".....", ".....", "....."],
+    " ": [".....", ".....", ".....", ".....", ".....", ".....", "....."],
+}
 
 
 def picture():
     img = Image.open(SRC).convert("L").crop(CROP).resize((W, H), Image.LANCZOS)
     return ImageOps.autocontrast(img, cutoff=2).convert("1")      # dithered; black pixels are drawn
+
+
+def text_strip(text=TEXT, sy=2):
+    """Light text on dark, centred in a W x TEXT_H strip."""
+    strip = Image.new("1", (W, TEXT_H), 0)
+    px = strip.load()
+    width = len(text) * 6 - 1
+    assert width <= W, "text too wide for the screen: %d > %d pixels" % (width, W)
+    x0, y0 = (W - width) // 2, (TEXT_H - 7 * sy) // 2
+    for i, ch in enumerate(text):
+        for r, row in enumerate(GLYPHS[ch]):
+            for c, v in enumerate(row):
+                if v == "#":
+                    for dy in range(sy):
+                        px[x0 + i * 6 + c, y0 + r * sy + dy] = 1
+    return strip
+
+
+def screen_image():
+    img = Image.new("1", (W, H + TEXT_H), 0)
+    img.paste(picture(), (0, 0))
+    img.paste(text_strip(), (0, H))
+    return img
 
 
 def c_source(img):
@@ -73,11 +113,11 @@ const lv_img_dsc_t peripheral_image = {
 def preview(img, scale=4):
     light = Image.new("RGB", img.size, (200, 203, 198))
     dark = Image.new("RGB", img.size, (30, 32, 35))
-    return Image.composite(light, dark, img.convert("L")).resize((W * scale, H * scale), Image.NEAREST)
+    return Image.composite(light, dark, img.convert("L")).resize((img.width * scale, img.height * scale), Image.NEAREST)
 
 
 def main():
-    img = picture()
+    img = screen_image()
     with open(OUT_C, "w", encoding="utf-8", newline="\n") as f:
         f.write(c_source(img))
     preview(img).save(OUT_PREVIEW)

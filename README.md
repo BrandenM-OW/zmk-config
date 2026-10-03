@@ -44,7 +44,8 @@ lasting changes in the `.vil` + `make_zmk.py`, and use Studio only for quick exp
 
 ## Right-half picture
 
-The right screen shows a still picture made from `screen/husky_source.png`. To change it, replace that file (or point
+The right screen shows a still picture made from `screen/husky_source.png`, with `COLEMAK-DH` under it (`TEXT` in the
+script; letters it has no glyph for are added in `GLYPHS`). To change the picture, replace that file (or point
 `SRC` in `screen/make_image.py` at another one, and adjust `CROP`), then:
 
 ```
