@@ -21,20 +21,23 @@ Then commit and push this repo.
    `corne_left...uf2` onto it; it restarts by itself when done.
 4. Same for the right half with `corne_right...uf2`.
 
-Instead of double-tapping reset, you can also hold both inner thumbs (BT layer) and press the top outer key of that half.
+Instead of double-tapping reset on the left half, you can also hold both inner thumbs (BT layer) and hold BOOT (top
+outer key) for half a second.
 
 ## BT layer (hold both inner thumbs)
 
 ```
- BOOT  BT0  BT1  BT2  BT3  BT4        F1   F2   F3   F4  Vol+ BOOT
- UNLK   .    .    .    .    .         F5   F6   F7   F8  Vol-   .
- BTCLR USB  BLE   .    .    .         F9  F10  F11  F12  Mute   .
+ BOOT   .    .  Mute Vol- Vol+         F1   F2   F3   F4   F5   F6
+ UNLK   .    .    .    .    .          F7   F8   F9  F10  F11  F12
+  .   USB  BLE    .    .    .         BT0  BT1  BT2  BT3  BT4 BTCLR
 ```
 
+- **BOOT, USB, BLE, BT0-BT4, BTCLR only act when held for half a second.** A tap does nothing, so landing on this
+  layer by accident while typing can't switch Bluetooth slots (that happened on 2026-10-03 while typing numbers).
 - **BT0-BT4**: switch between up to 5 paired computers. **BTCLR** forgets the pairing of the current slot.
 - **USB / BLE**: send keys over the cable or Bluetooth when both are connected.
 - **UNLK**: unlocks ZMK Studio so it can change keys live.
-- **BOOT**: flashing mode for that half.
+- **BOOT**: flashing mode for the left half. For the right half, double-tap its reset button.
 
 ## ZMK Studio
 
