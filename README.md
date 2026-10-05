@@ -1,17 +1,11 @@
-# zmk-config: Typeractive Corne (MX, wireless)
+# zmk-config: Typeractive Corne (Choc V1, wireless)
 
-ZMK firmware for the MX Corne: nice!nano v2 controllers, nice!view screens with [nice-view-gem](https://github.com/M165437/nice-view-gem) (a copy in
-`boards/shields/nice_view_gem`, with a husky instead of the crystal on the right half), ZMK v0.3. GitHub builds it on every push.
+ZMK firmware for the Typeractive Corne: nice!nano v2 controllers, nice!view screens with
+[nice-view-gem](https://github.com/M165437/nice-view-gem) (a copy in `boards/shields/nice_view_gem`, with a husky
+instead of the crystal on the right half), ZMK v0.3. GitHub builds it on every push.
 
-The keymap is the same Colemak-DH layout as the wired Choc Corne. **Don't edit `config/corne.keymap` by hand**: it is
-generated from the Vial keymap in the `corne` repo:
-
-```
-cd ..\corne
-python make_zmk.py        # writes mx\Colemak-DH-V1.keymap, mx\Colemak-DH-V2.keymap and copies V2 here
-```
-
-Then commit and push this repo.
+The layout is in `config/corne.keymap`: edit it there, then commit and push. Three layers: Base, Lower (hold either
+inner thumb) and BT (hold both inner thumbs).
 
 ## Flashing
 
@@ -43,7 +37,7 @@ outer key) for half a second.
 
 Studio changes are stored on the keyboard and **override this keymap**. After flashing a new keymap from here, open
 https://zmk.studio, connect, unlock, and use **Restore Stock Settings** so the board uses the file again. Make
-lasting changes in the `.vil` + `make_zmk.py`, and use Studio only for quick experiments.
+lasting changes in `config/corne.keymap`, and use Studio only for quick experiments.
 
 ## Right-half picture
 
