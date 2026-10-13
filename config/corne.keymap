@@ -185,7 +185,7 @@
             bindings = <
             &trans        &kp LS(N8)    &kp N1        &kp N2        &kp N3        &kp LS(EQUAL)   &kp MINUS     &kp LS(LBKT)  &kp LS(RBKT)  &kp LS(N9)    &kp LS(N0)    &kp DEL
             &trans        &kp FSLH      &kp N4        &kp N5        &kp N6        &kp N0          &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp LBKT      &kp RBKT
-            &trans        &kp EQUAL     &kp N7        &kp N8        &kp N9        &kp DOT         &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp BSLH      &kp GRAVE
+            &trans        &kp EQUAL     &kp N7        &kp N8        &kp N9        &kp MINUS       &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp BSLH      &kp GRAVE
                                                       &kp LGUI      &trans        &bt_sig         &bt_sig       &trans        &trans
             >;
         };
