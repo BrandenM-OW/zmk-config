@@ -5,7 +5,7 @@ ZMK firmware for the Typeractive Corne: nice!nano v2 controllers, nice!view scre
 instead of the crystal on the right half), ZMK v0.3. GitHub builds it on every push.
 
 The layout is in `config/corne.keymap`: edit it there, then commit and push. Three layers: Base, Lower (hold either
-middle thumb) and BT (hold both middle thumbs). Thumbs, outer to inner: Alt, Tab/Lower, Space on the left; Enter, Lower, Backspace on the right.
+middle thumb) and BT (hold both middle thumbs). Thumbs, outer to inner: Tab, Lower, Space on the left; Enter, Lower, Backspace on the right. Alt is the top-right key (PrtSc is Lower + that key).
 
 ## Flashing
 
