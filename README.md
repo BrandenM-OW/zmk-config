@@ -5,7 +5,7 @@ ZMK firmware for the Typeractive Corne: nice!nano v2 controllers, nice!view scre
 instead of the crystal on the right half), ZMK v0.3. GitHub builds it on every push.
 
 The layout is in `config/corne.keymap`: edit it there, then commit and push. Three layers: Base, Lower (hold either
-inner thumb) and BT (hold both inner thumbs).
+middle thumb) and BT (hold both middle thumbs). Thumbs, outer to inner: Alt, Tab/Lower, Space on the left; Enter, Lower, Backspace on the right.
 
 ## Flashing
 
@@ -15,10 +15,10 @@ inner thumb) and BT (hold both inner thumbs).
    `corne_left...uf2` onto it; it restarts by itself when done.
 4. Same for the right half with `corne_right...uf2`.
 
-Instead of double-tapping reset on the left half, you can also hold both inner thumbs (BT layer) and hold BOOT (top
+Instead of double-tapping reset on the left half, you can also hold both middle thumbs (BT layer) and hold BOOT (top
 outer key) for half a second.
 
-## BT layer (hold both inner thumbs)
+## BT layer (hold both middle thumbs)
 
 ```
  BOOT   .    .  Mute Vol- Vol+         F1   F2   F3   F4   F5   F6
