@@ -167,7 +167,7 @@
             &kp ESC   &kp Q     &kp W     &kp F     &kp P     &kp B       &kp J     &kp L     &kp U     &kp Y     &kp SEMI  &none    
             &kp LSHFT &kp A     &kp R     &kp S     &kp T     &kp G       &kp M     &kp N     &kp E     &kp I     &kp O     &kp SQT
             &kp LCTRL &kp Z     &kp X     &kp C     &kp D     &kp V       &kp K     &kp H     &kp COMMA &kp DOT   &kp FSLH  &kp LALT 
-                                    &kp TAB   &lower_sig  &kp SPACE &kp BSPC  &lower_sig  &kp RET
+                                    &kp TAB   &kp SPACE &lower_sig  &kp BSPC  &lower_sig  &kp RET
             >;
         };
 
@@ -177,13 +177,13 @@
             &trans        &kp LS(N8)    &kp N1        &kp N2        &kp N3        &kp LS(EQUAL)   &kp DEL       &kp LS(LBKT)  &kp LS(RBKT)  &kp LS(N9)    &kp LS(N0)    &kp PSCRN
             &trans        &kp FSLH      &kp N4        &kp N5        &kp N6        &kp N0          &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp LBKT      &kp RBKT
             &trans        &kp EQUAL     &kp N7        &kp N8        &kp N9        &kp MINUS       &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp BSLH      &kp GRAVE
-                                                      &kp LGUI      &bt_sig       &trans          &trans        &bt_sig       &trans
+                                                      &kp LGUI      &trans        &bt_sig         &trans        &bt_sig       &trans
             >;
         };
 
         layer_2 {
             display-name = "BT";
-            // Hold both middle thumbs. The Bluetooth, USB/BLE and BOOT keys only act when held for half a second,
+            // Hold both layer thumbs (left big key + right middle key). The Bluetooth, USB/BLE and BOOT keys only act when held for half a second,
             // so brushing them while typing does nothing.
             // Right bottom row: BT0-BT4 pick a Bluetooth slot, BTCLR forgets the current slot's pairing.
             // Left: BOOT (top outer) = flashing mode for the left half, Mute / Vol- / Vol+ (top row, inner three),
