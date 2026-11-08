@@ -190,11 +190,12 @@
             // Right bottom row: BT0-BT4 pick a Bluetooth slot, BTCLR forgets the current slot's pairing.
             // Left: BOOT (top outer) = flashing mode for the left half, Mute / Vol- / Vol+ (top row, inner three),
             // UNLOCK (home outer) = let ZMK Studio in, USB / BLE (bottom row) = where keys go when both are connected.
-            // F13-F17 (home row) = window slots 1-5, handled by CorneHUD: tap = go to the app, hold = put the app there.
+            // F13-F17 (home row) and F18-F20 (C, D, V) = window slots 1-8, handled by CorneHUD: tap = go to the app,
+            // hold = put the app there.
             bindings = <
             &held_boot 0 0  &none           &none           &kp C_MUTE      &kp C_VOL_DN    &kp C_VOL_UP      &kp F1          &kp F2          &kp F3          &kp F4          &kp F5          &kp F6
             &studio_unlock  &kp F13         &kp F14         &kp F15         &kp F16         &kp F17           &kp F7          &kp F8          &kp F9          &kp F10         &kp F11         &kp F12
-            &none           &held_usb 0 0   &held_ble 0 0   &none           &none           &none             &held_bt0 0 0   &held_bt1 0 0   &held_bt2 0 0   &held_bt3 0 0   &held_bt4 0 0   &held_btclr 0 0
+            &none           &held_usb 0 0   &held_ble 0 0   &kp F18         &kp F19         &kp F20           &held_bt0 0 0   &held_bt1 0 0   &held_bt2 0 0   &held_bt3 0 0   &held_bt4 0 0   &held_btclr 0 0
                                                             &trans          &trans          &trans            &trans          &trans          &trans
             >;
         };
