@@ -22,9 +22,12 @@ outer key) for half a second.
 
 ```
  BOOT   .    .  Mute Vol- Vol+         F1   F2   F3   F4   F5   F6
- UNLK   .    .    .    .    .          F7   F8   F9  F10  F11  F12
+ UNLK  S1   S2   S3   S4   S5          F7   F8   F9  F10  F11  F12
   .   USB  BLE    .    .    .         BT0  BT1  BT2  BT3  BT4 BTCLR
 ```
+
+- **S1-S5**: window slots (F13-F17). CorneHUD handles them: tap to bring that slot's app up maximized, hold for
+  half a second to put the app you're in on that slot. Without CorneHUD running they do nothing.
 
 - **BOOT, USB, BLE, BT0-BT4, BTCLR only act when held for half a second.** A tap does nothing, so landing on this
   layer by accident while typing can't switch Bluetooth slots (that happened on 2026-10-03 while typing numbers).
