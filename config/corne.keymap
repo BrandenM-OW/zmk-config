@@ -149,6 +149,16 @@
             bindings = <&m_ble>, <&none>;
         };
 
+        // Tab key: tap = Tab, hold = BT layer (with F22 for CorneHUD), so the left hand alone reaches the window slots.
+        // Tap-preferred: it only becomes the layer once held past 200 ms, so Tab never fires late or repeats.
+        lt_bt: lt_bt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&bt_sig>, <&kp>;
+        };
+
         held_boot: held_boot {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -167,7 +177,7 @@
             &kp ESC   &kp Q     &kp W     &kp F     &kp P     &kp B       &kp J     &kp L     &kp U     &kp Y     &kp SEMI  &none    
             &kp LSHFT &kp A     &kp R     &kp S     &kp T     &kp G       &kp M     &kp N     &kp E     &kp I     &kp O     &kp SQT
             &kp LCTRL &kp Z     &kp X     &kp C     &kp D     &kp V       &kp K     &kp H     &kp COMMA &kp DOT   &kp FSLH  &kp LALT 
-                                    &kp TAB   &kp SPACE &lower_sig  &lower_sig  &kp BSPC  &kp RET
+                                    &lt_bt 0 TAB  &kp SPACE &lower_sig  &lower_sig  &kp BSPC  &kp RET
             >;
         };
 
