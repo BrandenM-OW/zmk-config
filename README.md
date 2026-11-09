@@ -6,7 +6,7 @@ instead of the crystal on the right half), ZMK v0.3. GitHub builds it on every p
 
 The layout is in `config/corne.keymap`: edit it there, then commit and push. Three layers: Base, Lower (hold either
 layer thumb) and BT (hold both layer thumbs, or hold Esc on its own for a one-handed way to the window slots; a tap
-is still Esc). Thumbs, outer to inner: Tab, Space, Lower on the left; Enter, Backspace, Lower on the right. Ctrl is on both bottom corners and Alt is Tab held (a tap is still Tab, and it never repeats); the top-right key does nothing on Base (PrtSc is Lower + that key).
+is still Esc; or hold the top-right key). Thumbs, outer to inner: Tab, Space, Lower on the left; Enter, Backspace, Lower on the right. Ctrl is on both bottom corners and Alt is Tab held (a tap is still Tab, and it never repeats); the top-right key is held for the BT layer on Base (PrtSc is Lower + that key).
 
 ## Flashing
 

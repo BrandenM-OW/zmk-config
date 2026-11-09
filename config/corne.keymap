@@ -158,6 +158,7 @@
 
         // Esc key: tap = Esc, hold = BT layer (with F22 for CorneHUD), so the left hand alone reaches the window slots.
         // Tap-preferred: it only becomes the layer once held past 200 ms, so a quick Esc is never lost.
+        // The top-right key is a plain BT layer key too (it has nothing to tap), for slots with the right pinky holding.
         lt_bt: lt_bt {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -181,7 +182,7 @@
         layer_0 {
             display-name = "Base";
             bindings = <
-            &lt_bt 0 ESC &kp Q     &kp W     &kp F     &kp P     &kp B       &kp J     &kp L     &kp U     &kp Y     &kp SEMI  &none    
+            &lt_bt 0 ESC &kp Q     &kp W     &kp F     &kp P     &kp B       &kp J     &kp L     &kp U     &kp Y     &kp SEMI  &bt_sig
             &kp LSHFT &kp A     &kp R     &kp S     &kp T     &kp G       &kp M     &kp N     &kp E     &kp I     &kp O     &kp SQT
             &kp LCTRL &kp Z     &kp X     &kp C     &kp D     &kp V       &kp K     &kp H     &kp COMMA &kp DOT   &kp FSLH  &kp RCTRL
                                     &mt LALT TAB  &kp SPACE &lower_sig  &lower_sig  &kp BSPC  &kp RET
