@@ -1,8 +1,7 @@
 # zmk-config: Typeractive Corne (Choc V1, wireless)
 
 ZMK firmware for the Typeractive Corne: nice!nano v2 controllers, nice!view screens with
-[nice-view-gem](https://github.com/M165437/nice-view-gem) (a copy in `boards/shields/nice_view_gem`, with a husky
-instead of the crystal on the right half), ZMK v0.3. GitHub builds it on every push.
+[Strata](https://github.com/am/nice-view-strata), ZMK v0.3. GitHub builds it on every push.
 
 The layout is in `config/corne.keymap`: edit it there, then commit and push. Three layers: Base, Lower (hold either
 layer thumb) and BT (hold both layer thumbs, or hold Esc on its own for a one-handed way to the window slots; a tap
@@ -45,9 +44,21 @@ Studio changes are stored on the keyboard and **override this keymap**. After fl
 https://zmk.studio, connect, unlock, and use **Restore Stock Settings** so the board uses the file again. Make
 lasting changes in `config/corne.keymap`, and use Studio only for quick experiments.
 
-## Right-half picture
+## Screens
 
-The right screen shows a still picture made from `screen/husky_source.png`, with `COLEMAK-DH` under it (`TEXT` in the
+Strata draws both screens. Left: USB or Bluetooth with its link state, the five Bluetooth profiles (the active one
+filled), a tile per layer (Lower at the bottom, Base above it, BT on top; the active one filled) and the battery.
+Right: its link to the left half and its battery, under lines that move once when it starts or connects and then
+stay still. It is fetched by `config/west.yml`, pinned to one commit; to take a newer version, put that commit's id
+there. Settings are in `config/corne.conf` (see Strata's README for the options).
+
+**Going back to the previous screens** (big layer name on the left, the husky on the right; still in
+`boards/shields/nice_view_gem`): in `build.yaml` change both `nice_view` back to `nice_view_gem`, and in
+`config/corne.conf` swap the Strata lines for the ones in git history before 2026-11-19. Flash both halves.
+
+### Husky picture (previous screens only)
+
+The right screen showed a still picture made from `screen/husky_source.png`, with `COLEMAK-DH` under it (`TEXT` in the
 script; letters it has no glyph for are added in `GLYPHS`). To change the picture, replace that file (or point
 `SRC` in `screen/make_image.py` at another one, and adjust `CROP`), then:
 

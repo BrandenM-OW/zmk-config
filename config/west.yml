@@ -4,11 +4,18 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: am
+      url-base: https://github.com/am
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+    # Strata nice!view screens (https://github.com/am/nice-view-strata), pinned to the commit that was read through
+    # on 2026-11-19, so changes there only arrive when this line is updated on purpose.
+    - name: nice-view-strata
+      remote: am
+      revision: e7f18e2097600fa5d8226dd572cb869d703bf487
   self:
     path: config
-# The nice!view screens use a copy of nice-view-gem v0.3.0 in boards/shields/nice_view_gem (with our own picture
-# on the right half), so it is not fetched here. Upstream: https://github.com/M165437/nice-view-gem
+# The previous screens, a copy of nice-view-gem v0.3.0 with the husky on the right half, are still in
+# boards/shields/nice_view_gem; README.md says how to switch back.
